@@ -7,5 +7,5 @@ packages='amd-ucode base base-devel discord efibootmgr ghostty git grub hyprland
 if command -v yay &> /dev/null; then
 	yay -Syu --needed ${=packages}
 else
-	echo -e "\e[31myay not installed\e[0m"
+	echo -e "yay not installed"
 fi

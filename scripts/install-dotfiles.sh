@@ -1,7 +1,16 @@
 #! /usr/bin/zsh
 
-if [[ $PWD == $HOME ]]; then
-	echo jap
+function stowing() {
+	if [[ $PWD == $HOME/dotfiles ]]; then
+		stow --no-folding --ignore=scripts .
+	else
+		echo 'Wrong cwd (run script in $HOME/dotfiles)'
+	fi
+}
+
+if [[ -d "$HOME/dotfiles" ]]; then
+	stowing
 else
-	echo -e '\e[31mWrong cwd (run script in $HOME)\e[0m'
+	echo -e '$HOME/dotfiles does not exist'
 fi
+
